@@ -1,0 +1,68 @@
+@mixin button($colors...){
+    @if $buttons{
+        display: inline-block;
+        margin: 1em;
+        text-align: left;
+        font-size: 20px;
+        color: map-get($buttons-colors, nth($colors, 1));
+        a{
+            text-decoration: none;
+        }
+     
+        @if length($colors) > 1{
+            @for $i from 2 through length($colors){
+                &.#{nth($colors, $i)}{
+                    color: map-get($buttons-colors, nth($colors, $i) )
+                }
+            }
+        }
+    }@else{
+        display: none;
+    }
+}
+@mixin cajas {
+    font-size: 100%;
+    padding: 0.5%;
+    width: 20%;
+    border-radius: 0%;
+    margin: 1%;
+}
+
+@mixin letra($colores...){
+    @if $buttons{
+        display: inline-block;
+        margin: 1em;
+        font-size: 20px;
+        color: map-get($letras-colors, nth($colores, 1));
+        a{
+            text-decoration: none;
+        }
+     
+        @if length($colores) > 1{
+            @for $i from 2 through length($colores){
+                &.#{nth($colores, $i)}{
+                    color: map-get($letras-colors, nth($colores, $i) )
+                }
+            }
+        }
+    }@else{
+        display: none;
+    }
+}
+@mixin horizontal {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    
+}
+@mixin bgCovertint ($r-from, $g-from, $b-from, $r-to, $g-to, $b-to, $alpha, $imgurl, $background-top:"center", $background-left:"center", $background-attachment:"fixed") {
+    background: -webkit-linear-gradient(rgba($r-from, $g-from, $b-from, $alpha), rgba($r-to, $g-to, $b-to, $alpha)), url($imgurl) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
+    background: -moz-linear-gradient(rgba($r-from, $g-from, $b-from, $alpha), rgba($r-to, $g-to, $b-to, $alpha)), url($imgurl) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
+    background: -o-linear-gradient(rgba($r-from, $g-from, $b-from, $alpha), rgba($r-to, $g-to, $b-to, $alpha)), url($imgurl) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
+    background: linear-gradient(rgba($r-from, $g-from, $b-from, $alpha), rgba($r-to, $g-to, $b-to, $alpha)), url($imgurl) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}

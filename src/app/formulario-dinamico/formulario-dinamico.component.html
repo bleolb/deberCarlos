@@ -1,0 +1,13 @@
+<div class="form-schema" id="form-schema">
+    <form>
+        Form Ready!
+        <div *ngFor='let input of inputfield'>
+            <label [for]='input.name'>{{input.name}}</label>
+            <input [type]='input.type' [name]='input.name' [(ngModel)]='input.value' [placeholder]='input.placeholder'
+                required>
+            <br>
+        </div>
+        <br><br>
+        <button type="submit" (click)="send()">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+
+<div class="container">
+
+    <form [formGroup]="loginForm">
+    <div>
+    <label class="letras">Nombre</label>
+    <br>
+    <input type="text" formControlName="nombre" class="cajas" placeholder="nombre" pattern="[a-z]{1,16}[^0-9]+" >
+    <span [hidden]="loginForm.valid">{{message}}</span>
+    </div>
+    <div>
+    <label class="letras">Apellido</label>
+    <br>
+    <input type="text" formControlName="apellido" placeholder="apellido" class="cajas" pattern="[a-z]{1,16}[^0-9]+">
+    <span [hidden]="loginForm.valid">{{message}}</span>
+    </div>
+    <div> 
+    <label class="letras">mail</label>
+    <br>
+    <input type="mail" formControlName="mail" placeholder="mail" class="cajas" pattern="[a-z]+[a-z 0-9._-]*@[a-z]+[a-z 0-9]*[a-z]{2,3}[.]?[a-z]*"  >
+    <span [hidden]="loginForm.valid" (text-align)=" validaDatos()" >{{message}}</span>
+    </div>
+    
+    <div >
+    <label class="letras">Contraseña</label>
+    <br>
+    <input type="password" formControlName="password" placeholder="password" class="cajas" >
+    </div>
+    <button class="color-button alerta" type="button" (click)="validaDatos()"  >Ingresar</button>
+    </form>
+    <div>
+    <label>{{nombre}}</label>
+    <br>
+    <label>{{apellido}}</label>
+    <br>
+    <label>{{mail}}</label>
+    <br>
+    <label>{{password}}</label>
+    </div>
+    <img src="../imagenes.jpg">

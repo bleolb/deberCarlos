@@ -1,0 +1,47 @@
+<form [formGroup]="loginform" >
+    <div>
+        <input  class="form-control" [ngClass]="{'is-invalid': !loginform.get('nombre').valid}" type="text"
+            placeholder="Nombre" class="cajas" formControlName="nombre">
+        <span *ngIf="loginform.controls['nombre'].errors?.required" class="invalid-feedback">
+            Campo Requerido
+        </span>
+        <span *ngIf="loginform.controls['nombre'].errors?.minlength" class="invalid-feedback">
+           Digite al menos 1 caracter
+        </span>
+    </div>
+
+    <div>
+        <input class="form-control" [ngClass]="{'is-invalid': !loginform.get('apellido').valid}" type="text"
+            placeholder="Apellido" class="cajas" formControlName="apellido" >
+        <span *ngIf="loginform.controls['apellido'].errors?.required" class="invalid-feedback">
+                Campo Requerido
+        </span>
+        <span *ngIf="loginform.controls['apellido'].errors?.minlength" class="invalid-feedback">
+                Digite al menos 1 caracter
+        </span>
+    </div>
+
+    <div>
+        <input class="form-control" [ngClass]="{'is-invalid': !loginform.get('mail').valid}" type="text"
+            placeholder="Correo Electrónico" class="cajas" formControlName="mail" >
+        <span *ngIf="loginform.controls['mail'].errors?.required" class="invalid-feedback">
+                Campo Requerido
+        </span>
+        <span *ngIf="loginform.controls['mail'].errors?.pattern" class="invalid-feedback">
+            Correo Inválido
+        </span>
+    </div>
+
+    <div>
+        <input class="form-control" [ngClass]="{'is-invalid': !loginform.get('password').valid}" type="password"
+            placeholder="Contraseña" class="cajas" formControlName="password">
+        <span *ngIf="loginform.controls['password'].errors?.required" class="invalid-feedback">
+                Campo Requerido
+        </span>
+        <span *ngIf="loginform.controls['password'].errors?.minlength" class="invalid-feedback">
+            Contraseña Inválida
+        </span>
+    </div>
+</form>
+
+<button  class="color-button alerta" type="button" (click)="validaDatos()" >Enviar</button>
